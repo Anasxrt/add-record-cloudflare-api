@@ -3,7 +3,7 @@
 	#reference code from https://community.cloudflare.com/t/how-to-create-dns-in-php-using-cloudflare-api/25633/2
 	
 	function cloudflare_add_record($apikey,$email,$domain,$zoneid,$a_record,$value,$proxy=false,$ttl=1,$type='A'){
-		// A-record oluşturur DNS sistemi için.
+		// A-record creates for the DNS system.
 					$ch = curl_init("https://api.cloudflare.com/client/v4/zones/".$zoneid."/dns_records");
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 					curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
@@ -58,4 +58,7 @@
 	# Example
 	#echo cloudflare_add_record($apikey,$email,$domain,$zoneid,$record_name,$value)
 	
+	#domain -> NS Cloudflare -> Directadmin
+	#ns1-103-27-200-112 A 103.27.200.112
+	#ns1-103-27-200-112.abc.com
 ?>
